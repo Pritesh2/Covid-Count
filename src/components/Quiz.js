@@ -99,7 +99,7 @@ function Quiz(props)
                       ):('')        
                     }
                    <br></br>
-                    {current!==10?(
+                    {current!==9?(
                         <div className='text-center'>
                             <Button color='info' onClick={
                                 ()=>{setCurrent(current+1)}
