@@ -12,7 +12,7 @@ function Timer(props)
             <div className='text-center'>
                 {time===0?"Time's up":time+" seconds left"}
                 </div>
-            <Progress value={7*(35-time)} color='danger' />
+            <Progress value={1.7*(60-time)} color='danger' />
         </div>
         
     );
@@ -23,7 +23,7 @@ function Quiz(props)
     // first we require a timer.
 
     let pp=props;
-    const [time,setTime]=useState(35);
+    const [time,setTime]=useState(60);
 
     const [active,setActive]=useState(true);
 
@@ -99,7 +99,7 @@ function Quiz(props)
                       ):('')        
                     }
                    <br></br>
-                    {current!==4?(
+                    {current!==10?(
                         <div className='text-center'>
                             <Button color='info' onClick={
                                 ()=>{setCurrent(current+1)}
