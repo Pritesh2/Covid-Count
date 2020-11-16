@@ -7,12 +7,12 @@ import questions from '../questions';
 function Timer(props)
 {
     const {time}=props;
-    return(
+    return( // Progress bar to indicate how much time is left.
         <div>
             <div className='text-center'>
                 {time===0?"Time's up":time+" seconds left"}
                 </div>
-            <Progress value={1.7*(60-time)} color='danger' />
+            <Progress value={1.7*(60-time)} color='danger' /> 
         </div>
         
     );
@@ -23,20 +23,21 @@ function Quiz(props)
     // first we require a timer.
 
     let pp=props;
-    const [time,setTime]=useState(60);
+    const [time,setTime]=useState(60); // set inital timer 
 
-    const [active,setActive]=useState(true);
+    const [active,setActive]=useState(true); // to know the state of quiz
 
     const[problems,setProblems]=useState(null);
 
     const [current,setCurrent]=useState(0);
 
-    const [selected,setSelected]=useState([null,null,null,null,null]);
-
+    const [selected,setSelected]=useState([null,null,null,null]); // to store option selected by user.
+            // initially nothing is selected so all null 
 
     const finish=()=>{
         setActive(false);
         let score=0;
+        // Iterate through array of problems and calculate the score 
         for(let i=0;i<problems.length;i++)
         {
             if(problems[i].correct===selected[i])
@@ -48,7 +49,7 @@ function Quiz(props)
         alert('Congrats!!! You have scored '+score+' out of 100');
     }
 
-    const setUsersChoice=(index,choice)=>{
+    const setUsersChoice=(index,choice)=>{ // to set the option selected by user.
 
         let t=selected;
         t[index]=choice;
@@ -63,12 +64,12 @@ function Quiz(props)
 
         if(active){
         setTimeout(()=>{
-            setTime(time-1);
+            setTime(time-1); // UseEffect to decrement time 
         },1000);}
     },[time]);
 
     useEffect(()=>{
-        setProblems(questions);
+        setProblems(questions);  // to display next questions.
     },[])
 
     return (
@@ -109,6 +110,7 @@ function Quiz(props)
                        
 
                     }
+                    <br></br>
                     {
                         active?
                         <div className='text-center'>

@@ -20,7 +20,7 @@ const Cards=({data:{confirmed,recovered,deaths,lastUpdate}})=>{
 
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
                         <Typography variant="h5" >
-                        <CountUp start={0} 
+                        <CountUp start={0} //to give a increasing count
                         end={confirmed.value}
                         duration={5}
                         separator=","

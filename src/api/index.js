@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url='https://covid.mathdro.id/api';
+const url='https://covid19.mathdro.id/api';//https://covid19.mathdro.id/api/daily
 
 export const fetchData=async(country)=>{
 
@@ -35,8 +35,8 @@ export const fetchData=async(country)=>{
 export const fetchDailyData=async()=>{
     try {
         const {data}=await axios.get(`${url}/daily`);
-
-       // console.log(data);
+        //https://covid19.mathdro.id/api/daily
+        //console.log(data);
 
         const modifiedData=data.map((dailyData)=>({
             confirmed:dailyData.confirmed.total,
@@ -46,6 +46,7 @@ export const fetchDailyData=async()=>{
         return modifiedData;
         //return response;
     } catch (error) {
+        console.log('Data not accessible')
         
     }
 }

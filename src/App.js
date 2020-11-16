@@ -89,6 +89,7 @@ class App extends React.Component{
       <CountryPicker handleCountryChange={this.handleCountryChange}></CountryPicker>
      
       <Chart data={data} country={country}></Chart>
+  
       
       <div>
       
@@ -112,6 +113,15 @@ class App extends React.Component{
       </div>
     */}
     <PlayQuiz ></PlayQuiz>
+
+    {
+      /* <div className='text-center'>
+    <h3>Daily Indian Stats</h3>
+    //<Indian></Indian>
+    </div>
+    */
+    }
+    
     
      
 

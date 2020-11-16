@@ -23,14 +23,15 @@ const Chart=({data,country})=>{
         dailyData.length!=0?(
         <Line data={{
             labels:dailyData.map(({date})=>date),
-            datasets:[{
+            datasets:[{ //line on chart to indicate the infected ones
                 data:dailyData.map(({confirmed})=>confirmed),
                 label:'Infected',
                 borderColor:'#3333ff',
                 fill:true,
             },{
+                // line to indicate death
                 data:dailyData.map(({deaths})=>deaths),
-                label:'Deaths',
+                label:'Deaths', 
                 borderColor:'red',
                 backgroundColor:'rgba(255,0,0,0.5)',
                 fill:true,
